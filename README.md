@@ -2,6 +2,8 @@
 
 A specialized AI Agent that converts natural language instructions into executable Windows terminal commands (CMD/PowerShell). This project focuses on the iterative refinement of system prompts to ensure security, accuracy, and strict formatting.
 
+![NL to CLI Agent UI](nl%20to%20cli%20agent%20ui%20gif.gif)
+
 ## About the Project
 This project was developed as a Prompt Engineering assignment. The goal was to create an LLM-based agent (usingllama-3.3-70b-versatile) that evolves through systematic testing and measurement—moving from a basic model that executes dangerous commands to a secure, professional-grade CLI assistant.
 
