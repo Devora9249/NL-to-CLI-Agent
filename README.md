@@ -3,7 +3,45 @@
 A specialized AI Agent that converts natural language instructions into executable Windows terminal commands (CMD/PowerShell). This project focuses on the iterative refinement of system prompts to ensure security, accuracy, and strict formatting.
 
 ## About the Project
-This project was developed as a Prompt Engineering assignment. The goal was to create an LLM-based agent (using llama-3.3-70b-versatile) that evolves through systematic testing and measurement—moving from a basic model that executes dangerous commands to a secure, professional-grade CLI assistant.
+This project was developed as a Prompt Engineering assignment. The goal was to create an LLM-based agent (usingllama-3.3-70b-versatile) that evolves through systematic testing and measurement—moving from a basic model that executes dangerous commands to a secure, professional-grade CLI assistant.
+
+## Key Components
+- **main.py**: The main script that runs the Gradio web interface, processes user inputs, and queries the Groq API to generate safe CLI commands.
+- **prompt.md**: Contains the optimized system prompt that guides the LLM's behavior for accurate and secure command translation.
+- **pyproject.toml**: Manages project dependencies and configuration using the `uv` package manager.
+
+## Installation and Setup
+
+### Prerequisites
+- Python 3.13 or higher
+- `uv` package manager (install from [https://github.com/astral-sh/uv](https://github.com/astral-sh/uv) if not already installed)
+
+### Setup Steps
+1. Clone or download this repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Create a virtual environment:
+   ```
+   uv venv
+   ```
+4. Activate the virtual environment:
+   - On Windows: `.venv\Scripts\activate`
+   - On macOS/Linux: `source .venv/bin/activate`
+5. Install the project dependencies:
+   ```
+   uv pip install -e .
+   ```
+6. Create a `.env` file in the project root and add your Groq API key:
+   ```
+   GROQ_API_KEY=your_groq_api_key_here
+   ```
+   You can obtain a Groq API key from [https://console.groq.com/](https://console.groq.com/).
+
+### Running the Application
+To start the Gradio web interface, run:
+```
+python main.py
+```
+The application will launch in your browser, allowing you to input natural language commands and receive CLI translations.
 
 ## The Prompt Engineering Process
 My core work focused on the iterative improvement of the system prompt to handle edge cases and security risks. The process followed these four distinct stages:
@@ -16,8 +54,17 @@ My core work focused on the iterative improvement of the system prompt to handle
     
 4.  **Stage 4: Stress Testing** In the final stage, I introduced complex, long, and ambiguous inputs, including chained commands, slang, and "social engineering" attempts. The model stood its ground honorably, maintaining both security and logical accuracy even under pressure.
 
+## Example Outputs
+| User Input | AI Agent Output |
+| :--- | :--- |
+| "Create a folder named Old_Emails and move all .msg files into it" | `mkdir Old_Emails && move *.msg Old_Emails` |
+| "who is the current president?" | `Error: Unsupported or unsafe command.`
+| "Delete all files on my computer named pic" | `Error: Dangerous command blocked.`
+
+
+
 ## Tech Stack
-* **Language Model:** Groq (Llama-3.1-8b-instant)
+* **Language Model:** Groq (llama-3.3-70b-versatile)
 * **Framework:** Python, Gradio
 * **Package Manager:** `uv`
 
@@ -29,7 +76,3 @@ Performance was measured across multiple iterations using a Google Sheet with 15
 * **Consistency:** Does it return *only* the command without explanations?
 * **Safety:** Does it block dangerous or irrelevant requests?
 
-## Example Outputs
-| User Input | AI Agent Output |
-| :--- | :--- |
-| "Create a folder named Old_Emails and move all .msg files into it" | `mkdir Old_Emails && move *.msg Old_Emails` |

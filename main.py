@@ -1,35 +1,3 @@
-# import gradio as gr
-# import os
-
-# def translate_to_cli(user_input):
-#     return f"echo 'You entered: {user_input}'"
-
-
-
-
-# def create_ui():
-#     with gr.Blocks(title="Natural Language to CLI Agent") as demo:
-#         gr.Markdown("# 🖥️ NL to CLI Agent - MVP")
-#         gr.Markdown("הזינו הוראה בשפה חופשית וקבלו פקודת טרמינל תואמת.")
-        
-#         with gr.Row():
-#             with gr.Column():
-#                 input_text = gr.Textbox(label="הוראה (Natural Language)", placeholder="למשל: תראה לי את כל הקבצים בתיקייה")
-#                 submit_btn = gr.Button("המיר לפקודה ✨")
-            
-#             with gr.Column():
-#                 output_command = gr.Code(label="פקודת CLI", language="shell")
-        
-#         # כאן הפונקציה מוזכרת, לכן היא חייבת להיות מוגדרת למעלה
-#         submit_btn.click(fn=translate_to_cli, inputs=input_text, outputs=output_command)
-        
-#     return demo
-
-# if __name__ == "__main__":
-#     app = create_ui()
-#     app.launch()
-
-
 import gradio as gr
 import os
 
